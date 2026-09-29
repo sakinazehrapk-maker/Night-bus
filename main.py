@@ -229,3 +229,24 @@ while act4_active:
 
     if act4_active:
         input("\nPress ENTER to continue...")
+
+time.sleep(1)
+print_header("Unmarked Highway", "12:35 AM")
+
+print("The bus is completely off course now. No streetlights remain.")
+print("Mariam stands up from her seat and walks toward you.")
+print("Mariam: 'Hina got on this bus to find the missing seventh name from the crash.'")
+print("Mariam: 'Everyone on this bus is tied to that night. Rashid drove the rescue rig.'")
+print("Mariam: 'Sameer filed the false report. Bilal was the survivor who hid.'\n")
+
+print("What do you say?")
+print("[1] 'Why am I here then? I was just going home.'")
+print("[2] Accuse Sameer of causing the disappearance")
+print("[3] Say nothing and prepare for the final stop")
+
+truth_choice = input("\n> ")
+
+if truth_choice == "2":
+    accused_person = "Sameer"
+    print("\nYou point at Sameer: 'You've been lying since we left University Road!'")
+    print("Sameer turns pale, backing away toward the emergency door.")
