@@ -19,6 +19,8 @@ passengers = [
     "Unknown Man"
 ]
 hina_missing = False
+clues = []
+accused_person = None
 
 print_header("University Road", "11:38 PM")
 print("It's raining heavily outside.")
@@ -110,4 +112,54 @@ while stop_active:
         print("\nInvalid choice. Pick a number from 1 to 5.")
     
     if stop_active:
+        input("\nPress ENTER to continue...")
+
+print_header("Approaching Old Bridge", "12:05 AM")
+print("The streetlights become sparse. The road gets rougher.")
+print("Uncle Rashid turns around in seat 4 and looks straight at you.\n")
+print("Uncle Rashid: 'Son... did you see anyone get off back at Market?'")
+
+act3_active = True
+while act3_active:
+    print("\nWhat do you do?")
+    print("[1] 'No one got off. Seat 8 was just suddenly empty.'")
+    print("[2] 'Why are you asking me?'")
+    print("[3] Confront Sameer in seat 6")
+    print("[4] Look around the bus seats")
+    print("[5] Continue waiting in silence")
+    
+    choice = input("\n> ")
+
+    if choice == "1":
+        print("\nUncle Rashid frowns, lowering his voice.")
+        print("Rashid: 'I thought so too. But Mariam over there claims Hina got off.'")
+        print("He nods toward Mariam (Seat 12), who sits staring straight ahead.")
+        if "Mariam contradicted Rashid" not in clues:
+            clues.append("Mariam claims Hina left; Rashid says no one did")
+    elif choice == "2":
+        print("\nRashid gives a soft, nervous chuckle.")
+        print("Rashid: 'Just checking if my old eyes are playing tricks on me.'")
+    elif choice == "3":
+        print("\nYou step toward Sameer. He has his earphones in, tapping his foot rapidly.")
+        print("You pull one earphone aside: 'Did you know the girl in seat 8?'")
+        print("Sameer flinches. 'I don't know her. I'm just trying to get home.'")
+        print("As he reaches into his coat, his screen lights up with a message:")
+        print("  [Hina: 'Are you still coming tonight?']")
+        if "Sameer lied about Hina" not in clues:
+            clues.append("Sameer claimed not to know Hina, but has texts from her")
+    elif choice == "4":
+        print("\nYou glance around. Ayesha in seat 2 has moved to seat 5.")
+        print("You ask her: 'Didn't you sit near the front earlier?'")
+        print("Ayesha looks down at her phone: 'No. I've been in seat 5 the whole time.'")
+        print("Rashid speaks up from across the aisle: 'Yes, she was at the front.'")
+        if "Ayesha seat change" not in clues:
+            clues.append("Ayesha shifted seats and denied it")
+    elif choice == "5":
+        print("\nThe bus rattles over the expansion joints of Old Bridge.")
+        print("No one speaks. The silence grows heavier.")
+        act3_active = False
+    else:
+        print("\nInvalid choice.")
+
+    if act3_active:
         input("\nPress ENTER to continue...")
