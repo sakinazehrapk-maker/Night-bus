@@ -250,3 +250,73 @@ if truth_choice == "2":
     accused_person = "Sameer"
     print("\nYou point at Sameer: 'You've been lying since we left University Road!'")
     print("Sameer turns pale, backing away toward the emergency door.")
+
+time.sleep(1)
+print_header("Old Bridge - Memorial Site", "12:43 AM")
+
+print("The bus screeches to a final stop over the dark waters of Old Bridge.")
+print("The doors hiss open.")
+print("Outside, cold rain pours onto the rusted railing.")
+print("\nDriver: 'End of the line. You need to decide.'\n")
+
+print("What do you do?")
+print("[1] Step off the bus into the rain")
+print("[2] Confront the driver directly")
+print("[3] Refuse to leave and remain seated")
+print("[4] Count the seats on the bus")
+
+final_choice = input("\n> ")
+
+print_header("EPILOGUE", "12:45 AM")
+
+if accused_person == "Sameer":
+    print("ENDING 3: WRONG PASSENGER")
+    print("-" * 30)
+    print("You forced Sameer off the bus, believing he was behind the disappearances.")
+    print("Later, you find the full transcript: Sameer was trying to deliver Hina's letter.")
+    print("\nYou solved the mystery.")
+    print("Just not the right one.")
+
+elif final_choice == "1":
+    if len(clues) >= 3:
+        print("ENDING 1: HOME")
+        print("-" * 30)
+        print("You step off into the wet night and walk toward the city lights.")
+        print("The bus tail lights fade into the thick fog.")
+        print("Your phone vibrates in your pocket. A text from an Unknown Number:")
+        print("\n'You were the only one who got off.'")
+    else:
+        print("ENDING 6: THE LOOP")
+        print("-" * 30)
+        print("You step off at Old Bridge and walk into the mist.")
+        print("The fog grows impossibly dense. You lose your footing.")
+        print("\n11:38 PM.")
+        print("You get on the bus. There are 7 passengers.")
+        print("Hina looks directly at you: 'Don't make the same mistake this time.'")
+
+elif final_choice == "2":
+    print("ENDING 2: THE DRIVER")
+    print("-" * 30)
+    print("You march to the front and grab the driver's shoulder.")
+    print("You: 'Who are you? What was this ride supposed to be?'")
+    print("The driver turns. Beneath his cap, his face is featureless.")
+    print("Driver: 'You've been asking the wrong question.'")
+    print("You: 'Then what's the right one?'")
+    print("Driver: 'Why were you on the bus?'")
+
+elif final_choice == "4":
+    print("ENDING 4: THE SEVENTH PASSENGER")
+    print("-" * 30)
+    print("You walk slowly down the central aisle, counting each row.")
+    print("1... 2... 3... 4... 5... 6... 7... 8.")
+    print("You turn around.")
+    print("Your seat near the back is not empty.")
+    print("You are sitting in it, looking back at yourself.")
+
+else:
+    print("ENDING 5: LAST STOP")
+    print("-" * 30)
+    print("You sit quietly as the engine dies. The lights shut off one by one.")
+    print("When morning light breaks through the fog, the bus is empty.")
+    print("No driver. No passengers.")
+    print("You check your phone: 47 missed calls, all from your own number.")
