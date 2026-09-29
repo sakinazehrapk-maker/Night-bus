@@ -163,3 +163,69 @@ while act3_active:
 
     if act3_active:
         input("\nPress ENTER to continue...")
+time.sleep(1)
+print_header("Blackwood Tunnel", "12:17 AM")
+
+print("The bus plunges into a long, unlit mountain tunnel.")
+print("The overhead lights flicker twice... then go completely pitch dark.")
+print("The engine hums loudly inside the narrow space.\n")
+
+print("*thud*")
+print("*a quiet gasp*")
+print("*footsteps shuffling in the dark*\n")
+
+time.sleep(2)
+print("The emergency lights buzz back on with a dull yellow glow.")
+
+if "Bilal" in passengers:
+    passengers.remove("Bilal")
+
+print("You look down the aisle.")
+print("Bilal's seat (Seat 10) is empty. His black backpack sits abandoned on the floor.")
+
+act4_active = True
+while act4_active:
+    print_header("Blackwood Tunnel Exit", "12:20 AM")
+    print("What do you want to do?")
+    print("[1] Inspect Bilal's backpack")
+    print("[2] Talk to the Unknown Man in the back")
+    print("[3] Check your observations")
+    print("[4] Call out the driver")
+    print("[5] Move on")
+
+    choice = input("\n> ")
+
+    if choice == "1":
+        print("\nYou open Bilal's backpack.")
+        print("Inside are newspaper clippings from exactly one year ago:")
+        print("  'TRAGEDY AT OLD BRIDGE: ROUTE 17-B BUS ACCIDENT CLAIMS LIVES.'")
+        print("A handwritten note reads: 'Official report says 6 died. There were 7.'")
+        if "Old Bridge crash clippings" not in clues:
+            clues.append("Route 17-B crashed 1 year ago; 7th victim omitted from records")
+    elif choice == "2":
+        print("\nYou walk back to the Unknown Man (Seat 14), hood pulled low.")
+        print("You: 'Who are you? What's happening on this bus?'")
+        print("Unknown Man: 'I've never seen any of these people before... but neither have you.'")
+        print("He looks up slightly. 'Are you sure you boarded this bus tonight?'")
+    elif choice == "3":
+        print("\n--- YOUR OBSERVATIONS ---")
+        for idx, clue in enumerate(clues, 1):
+            print(f" [{idx}] {clue}")
+        if not clues:
+            print(" No major clues recorded yet.")
+    elif choice == "4":
+        print("\nYou march up to the driver's cabin.")
+        print("You: 'Two people are gone! Where are we going? Central was three miles back!'")
+        print("The driver doesn't turn his head. 'Route 17-B was cancelled a year ago.'")
+        print("You: 'Then why are you driving it?'")
+        print("Driver: 'I only carry who's meant to be carried.'")
+        if "Cancelled route confirmed" not in clues:
+            clues.append("The driver confirmed Route 17-B was cancelled a year ago")
+    elif choice == "5":
+        print("\nYou return to your seat. The bus surges into the rain again.")
+        act4_active = False
+    else:
+        print("\nInvalid choice.")
+
+    if act4_active:
+        input("\nPress ENTER to continue...")
