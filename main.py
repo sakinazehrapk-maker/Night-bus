@@ -8,6 +8,9 @@ def print_header(location, clock_time):
     print("╚══════════════════════════════════════╝")
     print(f"Time: {clock_time}  |  Location: {location}")
     print("=" * 40 + "\n")
+def add_clue(text):
+    if text not in clues:
+        clues.append(text)
 phone_battery = 87
 passengers = [
     "Ayesha",
@@ -134,8 +137,7 @@ while act3_active:
         print("\nUncle Rashid frowns, lowering his voice.")
         print("Rashid: 'I thought so too. But Mariam over there claims Hina got off.'")
         print("He nods toward Mariam (Seat 12), who sits staring straight ahead.")
-        if "Mariam contradicted Rashid" not in clues:
-            clues.append("Mariam claims Hina left; Rashid says no one did")
+        add_clue("Mariam claims Hina left; Rashid says no one did")
     elif choice == "2":
         print("\nRashid gives a soft, nervous chuckle.")
         print("Rashid: 'Just checking if my old eyes are playing tricks on me.'")
@@ -145,15 +147,13 @@ while act3_active:
         print("Sameer flinches. 'I don't know her. I'm just trying to get home.'")
         print("As he reaches into his coat, his screen lights up with a message:")
         print("  [Hina: 'Are you still coming tonight?']")
-        if "Sameer lied about Hina" not in clues:
-            clues.append("Sameer claimed not to know Hina, but has texts from her")
+        add_clue("Sameer claimed not to know Hina, but has texts from her")
     elif choice == "4":
         print("\nYou glance around. Ayesha in seat 2 has moved to seat 5.")
         print("You ask her: 'Didn't you sit near the front earlier?'")
         print("Ayesha looks down at her phone: 'No. I've been in seat 5 the whole time.'")
         print("Rashid speaks up from across the aisle: 'Yes, she was at the front.'")
-        if "Ayesha seat change" not in clues:
-            clues.append("Ayesha shifted seats and denied it")
+        add_clue("Ayesha shifted seats and denied it")
     elif choice == "5":
         print("\nThe bus rattles over the expansion joints of Old Bridge.")
         print("No one speaks. The silence grows heavier.")
@@ -200,8 +200,7 @@ while act4_active:
         print("Inside are newspaper clippings from exactly one year ago:")
         print("  'TRAGEDY AT OLD BRIDGE: ROUTE 17-B BUS ACCIDENT CLAIMS LIVES.'")
         print("A handwritten note reads: 'Official report says 6 died. There were 7.'")
-        if "Old Bridge crash clippings" not in clues:
-            clues.append("Route 17-B crashed 1 year ago; 7th victim omitted from records")
+        add_clue("Route 17-B crashed 1 year ago; 7th victim omitted from records")
     elif choice == "2":
         print("\nYou walk back to the Unknown Man (Seat 14), hood pulled low.")
         print("You: 'Who are you? What's happening on this bus?'")
@@ -219,8 +218,7 @@ while act4_active:
         print("The driver doesn't turn his head. 'Route 17-B was cancelled a year ago.'")
         print("You: 'Then why are you driving it?'")
         print("Driver: 'I only carry who's meant to be carried.'")
-        if "Cancelled route confirmed" not in clues:
-            clues.append("The driver confirmed Route 17-B was cancelled a year ago")
+        add_clue("The driver confirmed Route 17-B was cancelled a year ago")
     elif choice == "5":
         print("\nYou return to your seat. The bus surges into the rain again.")
         act4_active = False
@@ -246,10 +244,15 @@ print("[3] Say nothing and prepare for the final stop")
 
 truth_choice = input("\n> ")
 
-if truth_choice == "2":
+if truth_choice == "1":
+    print("\nYou: 'Why am I here then? I was just going home.'")
+    print("Mariam looks at you for a long moment. 'That,' she says quietly, 'is the real question.'")
+elif truth_choice == "2":
     accused_person = "Sameer"
     print("\nYou point at Sameer: 'You've been lying since we left University Road!'")
     print("Sameer turns pale, backing away toward the emergency door.")
+else:
+    print("\nYou say nothing. The rain hammers the roof as the bus slows.")
 
 time.sleep(1)
 print_header("Old Bridge - Memorial Site", "12:43 AM")
@@ -276,6 +279,7 @@ if accused_person == "Sameer":
     print("Later, you find the full transcript: Sameer was trying to deliver Hina's letter.")
     print("\nYou solved the mystery.")
     print("Just not the right one.")
+    input("\nPress ENTER to exit...")
 
 elif final_choice == "1":
     if len(clues) >= 3:
@@ -285,6 +289,7 @@ elif final_choice == "1":
         print("The bus tail lights fade into the thick fog.")
         print("Your phone vibrates in your pocket. A text from an Unknown Number:")
         print("\n'You were the only one who got off.'")
+        input("\nPress ENTER to exit...")
     else:
         print("ENDING 6: THE LOOP")
         print("-" * 30)
@@ -293,6 +298,7 @@ elif final_choice == "1":
         print("\n11:38 PM.")
         print("You get on the bus. There are 7 passengers.")
         print("Hina looks directly at you: 'Don't make the same mistake this time.'")
+        input("\nPress ENTER to exit...")
 
 elif final_choice == "2":
     print("ENDING 2: THE DRIVER")
@@ -303,6 +309,7 @@ elif final_choice == "2":
     print("Driver: 'You've been asking the wrong question.'")
     print("You: 'Then what's the right one?'")
     print("Driver: 'Why were you on the bus?'")
+    input("\nPress ENTER to exit...")
 
 elif final_choice == "4":
     print("ENDING 4: THE SEVENTH PASSENGER")
@@ -312,6 +319,7 @@ elif final_choice == "4":
     print("You turn around.")
     print("Your seat near the back is not empty.")
     print("You are sitting in it, looking back at yourself.")
+    input("\nPress ENTER to exit...")
 
 else:
     print("ENDING 5: LAST STOP")
@@ -320,3 +328,4 @@ else:
     print("When morning light breaks through the fog, the bus is empty.")
     print("No driver. No passengers.")
     print("You check your phone: 47 missed calls, all from your own number.")
+input("\nPress ENTER to exit...")
