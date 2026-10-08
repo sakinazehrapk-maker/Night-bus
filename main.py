@@ -279,7 +279,6 @@ if accused_person == "Sameer":
     print("Later, you find the full transcript: Sameer was trying to deliver Hina's letter.")
     print("\nYou solved the mystery.")
     print("Just not the right one.")
-    input("\nPress ENTER to exit...")
 
 elif final_choice == "1":
     if len(clues) >= 3:
@@ -289,7 +288,6 @@ elif final_choice == "1":
         print("The bus tail lights fade into the thick fog.")
         print("Your phone vibrates in your pocket. A text from an Unknown Number:")
         print("\n'You were the only one who got off.'")
-        input("\nPress ENTER to exit...")
     else:
         print("ENDING 6: THE LOOP")
         print("-" * 30)
@@ -298,7 +296,6 @@ elif final_choice == "1":
         print("\n11:38 PM.")
         print("You get on the bus. There are 7 passengers.")
         print("Hina looks directly at you: 'Don't make the same mistake this time.'")
-        input("\nPress ENTER to exit...")
 
 elif final_choice == "2":
     print("ENDING 2: THE DRIVER")
@@ -309,7 +306,6 @@ elif final_choice == "2":
     print("Driver: 'You've been asking the wrong question.'")
     print("You: 'Then what's the right one?'")
     print("Driver: 'Why were you on the bus?'")
-    input("\nPress ENTER to exit...")
 
 elif final_choice == "4":
     print("ENDING 4: THE SEVENTH PASSENGER")
@@ -319,8 +315,6 @@ elif final_choice == "4":
     print("You turn around.")
     print("Your seat near the back is not empty.")
     print("You are sitting in it, looking back at yourself.")
-    input("\nPress ENTER to exit...")
-
 else:
     print("ENDING 5: LAST STOP")
     print("-" * 30)
